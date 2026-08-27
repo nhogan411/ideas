@@ -76,7 +76,7 @@ Cook Time 15
 
 Total Time 25
 
-Servings: [4]
+Servings: 4
 
 Calories Per Serving: 528 kcal
 

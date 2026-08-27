@@ -1,0 +1,204 @@
+{
+  "main": {
+    "id": "6c3a3853622c7206",
+    "type": "split",
+    "children": [
+      {
+        "id": "3ad1a35773424a1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "624c019a1b68c80b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Baked Honey Mustard Chicken"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e24b46b344e60005",
+    "type": "split",
+    "children": [
+      {
+        "id": "1dcf74d91d2f2cff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "33922b4a9eac67e8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "dd4a4e21416a1a30",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "fdd1076e373502d4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "51294f56eb2ffd64",
+    "type": "split",
+    "children": [
+      {
+        "id": "1416828580a303e6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9a95a701db95489c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "9f92cb719e52a545",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "67116ca884688a1a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "1ee07db3cb4f4313",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "b00421acc76e4282",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "624c019a1b68c80b",
+  "lastOpenFiles": [
+    "raw/BS In The Kitchen/Caramelized Onion & Mushroom Brie Grilled Cheese.md",
+    "raw/BS In The Kitchen/Unconfirmed 108555.crdownload",
+    "raw/BS In The Kitchen",
+    "raw/Serious Eats/Singapore Rice Noodles.md",
+    "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+    "raw/My Fitness Pal/Unconfirmed 375140.crdownload",
+    "raw/My Fitness Pal",
+    "raw/pinterest-recipe-links.md",
+    "raw/Half Baked Harvest/Crockpot Creamy Coconut Chicken Tikka Masala..md",
+    "raw/Half Baked Harvest/Better Than Takeout Sweet Thai Basil Chicken..md"
+  ]
+}

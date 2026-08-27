@@ -117,7 +117,7 @@ Cook Time 5
 
 Total Time 5 15
 
-Servings: [6]
+Servings: 6
 
 Calories Per Serving: 316 kcal
 
