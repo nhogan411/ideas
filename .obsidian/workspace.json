@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "file": "raw/Serious Eats/Singapore Rice Noodles.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Baked Honey Mustard Chicken"
+              "title": "Singapore Rice Noodles"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "file": "raw/Half Baked Harvest/Crockpot Creamy Coconut Chicken Tikka Masala..md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "file": "raw/Half Baked Harvest/Crockpot Creamy Coconut Chicken Tikka Masala..md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+                "file": "raw/Half Baked Harvest/Crockpot Creamy Coconut Chicken Tikka Masala..md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,14 +190,16 @@
   },
   "active": "624c019a1b68c80b",
   "lastOpenFiles": [
+    "raw/Half Baked Harvest/Better Than Takeout Sweet Thai Basil Chicken.md",
+    "raw/Serious Eats/Singapore Rice Noodles.md",
+    "raw/pinterest-recipe-links.md",
+    "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
+    "comic-library-app",
     "raw/BS In The Kitchen/Caramelized Onion & Mushroom Brie Grilled Cheese.md",
     "raw/BS In The Kitchen/Unconfirmed 108555.crdownload",
     "raw/BS In The Kitchen",
-    "raw/Serious Eats/Singapore Rice Noodles.md",
-    "raw/My Fitness Pal/Baked Honey Mustard Chicken.md",
     "raw/My Fitness Pal/Unconfirmed 375140.crdownload",
     "raw/My Fitness Pal",
-    "raw/pinterest-recipe-links.md",
     "raw/Half Baked Harvest/Crockpot Creamy Coconut Chicken Tikka Masala..md",
     "raw/Half Baked Harvest/Better Than Takeout Sweet Thai Basil Chicken..md"
   ]

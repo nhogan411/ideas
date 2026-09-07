@@ -38,21 +38,15 @@ Brown some ground chicken. Season it up with black pepper, then add in bell pepp
 
 The garlic and ginger add all the flavor, while the cashews add a hearty crunch.
 
-<iframe frameborder="0" src="https://1.html-load.com/session/r5l/9yl/7bf/tl6/www.halfbakedharvest.com/zao/qwhvi331tyxywywknykyfm6mykqy796o2xxy7ko9yfxwxk2m6kyke9yrtvxnxgvjnyrcsscznt07y7fqv3fs7yrqsjywtvxnxgvjnyweyiwyi62ywi3jzywqs73vf7ngyri3jzynvtyin43gvycyzyky2yz99qs7xfcy37y7n4yz99yzkymwyzykyl" title="3rd party ad content" width="   1" height="   1" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement"></iframe>
-
 ![side angled close up photo of Better Than Takeout Sweet Thai Basil Chicken with chopsticks in photo ](https://www.halfbakedharvest.com/wp-content/uploads/2019/07/Better-Than-Takeout-Sweet-Thai-Basil-Chicken-5.jpg)
 
 Now, the sauce. It’s a mix up of my very favorite Thai flavors, soy sauce, [fish sauce](https://rstyle.me/+jICBiGJaKBxx1zSxOMQiDw), honey, and chili sauce ([sambal oelek](https://rstyle.me/+1aPR5bKTr6fPFPO30L6SVg)). Nothing fancy, but all things good.
-
-<iframe frameborder="0" src="https://1.html-load.com/session/r5l/9yl/7bf/tl6/www.halfbakedharvest.com/zao/qwhvi331tyxywywknykyfm6mykqy796o2xxy7ko9yfxwxk2m6kyke9yrtvxnxgvjnyrcsscznt07y7fqv3fs7yrqsjywtvxnxgvjnyweyiwyi62ywi3jzywqs73vf7ngyri3jzynvtyin43gvycyzyky2yz99qs7xfcy37y7n4yz99yzkymwyzykyl" title="3rd party ad content" width="   1" height="   1" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement"></iframe>
 
 And if you think you don’t like [fish sauce](https://rstyle.me/+jICBiGJaKBxx1zSxOMQiDw), I highly, highly recommend you give it a try. It’s such an insanely good sauce that adds so much flavor to Thai dishes. If you ask me, it’s essential.
 
 As soon as the chicken is cooked and the sauce has thickened, remove it from the heat and stir in plenty of fresh basil leaves and fresh mint. Serve over steamed rice (white or brown both work, or use quinoa).
 
 And you guys…that’s it. Takes less than 30 minutes to make and is so much better than your local Thai takeout. LOVE!
-
-<iframe frameborder="0" src="https://1.html-load.com/session/r5l/9yl/7bf/tl6/www.halfbakedharvest.com/zao/qwhvi331tyxywywknykyfm6mykqy796o2xxy7ko9yfxwxk2m6kyke9yrtvxnxgvjnyrcsscznt07y7fqv3fs7yrqsjywtvxnxgvjnyweyiwyi62ywi3jzywqs73vf7ngyri3jzynvtyin43gvycyzyky2yz99qs7xfcy37y7n4yz99yzkymwyzykyl" title="3rd party ad content" width="   1" height="   1" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement"></iframe>
 
 ![overhead photo of Better Than Takeout Sweet Thai Basil Chicken with chopsticks resting in bowl](https://www.halfbakedharvest.com/wp-content/uploads/2019/07/Better-Than-Takeout-Sweet-Thai-Basil-Chicken-6.jpg)
 
