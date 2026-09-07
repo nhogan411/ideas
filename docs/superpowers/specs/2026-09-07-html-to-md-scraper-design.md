@@ -25,7 +25,9 @@ The goal is to reduce this to near-zero for domains the tool has seen before, an
 Runs inside Docker. No local Python install or virtualenv required.
 
 ```
-docker-compose.yml + Dockerfile
+docker-compose.yml + Dockerfile + justfile
+  - justfile wraps docker compose commands into short recipes (just run, just test-rule, just retry, just build)
+    -> this is the primary interface documented for day-to-day use; only host dependency is `just` itself
   - Image ships with: Python, trafilatura, readability-lxml, httpx, markdownify,
     python-slugify, playwright (+ browser binaries), openpyxl
   - Volumes:
@@ -83,7 +85,7 @@ This is the primary mechanism for driving manual review toward zero over time, s
 - Workflow for adding a new rule (documented step by step in README, using the real Half Baked Harvest example as the worked walkthrough):
   1. Notice recurring junk in an output file for domain X.
   2. Add or extend the `domains.yml` entry for X.
-  3. Test the rule against a single known-bad URL: `docker compose run scraper test-rule <url>` — prints before/after diff of the extracted content, no batch run needed.
+  3. Test the rule against a single known-bad URL: `just test-rule <url>` — prints before/after diff of the extracted content, no batch run needed.
   4. Once satisfied, the rule applies automatically to every future URL on that domain.
 - `domains.yml` documentation is a first-class deliverable — not an afterthought. Must include the full schema reference, the worked example above, and the test-rule command.
 
@@ -136,15 +138,21 @@ Any file tripping a threshold gets `needs_review: true` in its frontmatter and i
   3. Review `run-report.md`, spot-check flagged files.
   4. Run batch 2, etc.
 - `run-state.json` (per input file) tracks `pending / done / failed / flagged` per URL. Re-running the same input file automatically skips URLs already marked `done`.
-- `docker compose run scraper retry --failed-only` re-attempts only failed/flagged URLs from the last run against that input file.
+- `docker compose run scraper retry --failed-only` re-attempts only failed/flagged URLs from the last run against that input file (exposed as `just retry <input-file>`).
 
 ### 9. CLI
 
+Raw `docker compose run` commands work directly, but the primary interface is a `justfile` (https://github.com/casey/just) that wraps them into short, memorable recipes — this is what the README teaches and what the day-to-day workflow uses.
+
 ```bash
-docker compose run scraper run --input input/urls.csv --output-dir output --batch-size 25
-docker compose run scraper test-rule <url>          # test a domains.yml rule against one URL
-docker compose run scraper retry --failed-only --input input/urls.csv
+just run urls.csv                # docker compose run scraper run --input input/urls.csv --output-dir output --batch-size 25
+just run urls.csv 10              # optional batch-size override
+just test-rule <url>              # docker compose run scraper test-rule <url>
+just retry urls.csv               # docker compose run scraper retry --failed-only --input input/urls.csv
+just build                        # docker compose build (only needed after dependency changes)
 ```
+
+`just` is a single dependency to install on the host (`brew install just`), and is the only command surface documented for day-to-day use — the underlying `docker compose run ...` invocations stay available as an escape hatch but aren't the primary teaching surface in the README.
 
 ## Future Extensions (seams built in now, not implemented)
 
