@@ -8,7 +8,7 @@ This is **not** a recipe-specific tool. Recipe blogs are one of many source type
 
 ## Problem Statement
 
-The current workflow (Obsidian Web Clipper, one URL at a time) produces Markdown that requires heavy manual review before it's usable. Inspecting a real example (`raw/Half Baked Harvest/Better Than Takeout Sweet Thai Basil Chicken..md`) shows the core issue: **junk/boilerplate is not stripped** — tracking ad iframes, "Shop the recipe ingredients" / Instacart cruft, and shopping-affiliate links wrapped around every ingredient line all survive into the output alongside the real content.
+The current workflow (Obsidian Web Clipper, one URL at a time) produces Markdown that requires heavy manual review before it's usable. Inspecting a real example (`raw/Half Baked Harvest/Better Than Takeout Sweet Thai Basil Chicken..md`) shows the core issue: **junk/boilerplate is not stripped** — tracking ad iframes and newsletter-signup/promo banners survive into the output alongside the real content. Note: not everything that looks like "extra" content is junk — e.g. this domain's Instacart shopping links attached to each ingredient are wanted, not noise, and must be preserved by any cleanup rule (see Per-Domain Override Rules below).
 
 The goal is to reduce this to near-zero for domains the tool has seen before, and to make what's left easy to triage rather than requiring every file to be opened and read.
 
@@ -76,11 +76,11 @@ This is the primary mechanism for driving manual review toward zero over time, s
   halfbakedharvest.com:
     strip_selectors:
       - "iframe[src*='html-load.com']"
-      - ".jupiter-recipe-shop"
+      - ".newsletter-signup-banner"
     strip_text_patterns:
-      - "Shop the recipe ingredients"
-      - "Save.*Print.*Email"
+      - "Sign up for my newsletter"
   ```
+  Note what's deliberately *not* in this example: the Instacart shopping links attached to each ingredient. Those are useful (a legitimate "buy these ingredients" service the user wants to keep using), not noise — a rule should target the specific junk element (the ad iframe, the newsletter banner), never a blanket "strip all links" pattern that would take out wanted content along with it.
 - Versioned in git alongside the rest of the tool — history of what was added, when, and (via commit message) why.
 - Workflow for adding a new rule (documented step by step in README, using the real Half Baked Harvest example as the worked walkthrough):
   1. Notice recurring junk in an output file for domain X.
@@ -100,9 +100,8 @@ This is the primary mechanism for driving manual review toward zero over time, s
 Runs after extraction, before writing to disk. Cheap heuristics computed per file:
 
 - Word count below threshold (extraction likely failed or page was mostly non-content)
-- Link density: ratio of markdown links to total words (catches patterns like every ingredient line being a shopping/affiliate link)
-- Leftover `<iframe>`/`<script>` residue that survived extraction
-- Suspiciously repeated phrases/blocks (a sign of un-stripped repeated widgets)
+- Leftover `<iframe>`/`<script>` residue that survived extraction (a strong signal of ad/tracking cruft, not a signal about legitimate content links like Instacart's — this heuristic checks for raw script/iframe tags specifically, not link density, so it won't flag wanted shopping links)
+- Suspiciously repeated phrases/blocks (a sign of un-stripped repeated widgets, e.g. a newsletter banner appearing 3 times on one page)
 
 Any file tripping a threshold gets `needs_review: true` in its frontmatter and is listed separately (with the specific reason) in `run-report.md`. This turns "read every file" into "read the 3-5 flagged files."
 
