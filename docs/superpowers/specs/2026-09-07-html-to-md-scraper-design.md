@@ -145,12 +145,17 @@ Any file tripping a threshold gets `needs_review: true` in its frontmatter and i
 Raw `docker compose run` commands work directly, but the primary interface is a `justfile` (https://github.com/casey/just) that wraps them into short, memorable recipes — this is what the README teaches and what the day-to-day workflow uses.
 
 ```bash
-just run urls.csv                # docker compose run scraper run --input input/urls.csv --output-dir output --batch-size 25
+just init                         # one-time setup: docker compose build + create ./input, ./output, ./state dirs + seed a blank domains.yml if missing
+just up                           # docker compose up -d (starts any long-lived services, e.g. if a Playwright browser container runs standalone)
+just down                         # docker compose down
+just run urls.csv                 # docker compose run scraper run --input input/urls.csv --output-dir output --batch-size 25
 just run urls.csv 10              # optional batch-size override
 just test-rule <url>              # docker compose run scraper test-rule <url>
 just retry urls.csv               # docker compose run scraper retry --failed-only --input input/urls.csv
 just build                        # docker compose build (only needed after dependency changes)
 ```
+
+`just init` is the documented first command in the README (fresh clone → `just init` → ready to run). `just up`/`just down` manage the compose stack's lifecycle explicitly, which matters if the architecture ends up with a standalone long-lived service (e.g. a persistent Playwright browser container reused across runs rather than started fresh per invocation) rather than pure one-shot `docker compose run` calls — this decision is deferred to the implementation plan, but the recipes exist either way since `down` is also the correct way to clean up dangling containers/volumes if a run gets interrupted.
 
 `just` is a single dependency to install on the host (`brew install just`), and is the only command surface documented for day-to-day use — the underlying `docker compose run ...` invocations stay available as an escape hatch but aren't the primary teaching surface in the README.
 
