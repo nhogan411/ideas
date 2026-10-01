@@ -134,11 +134,24 @@ PoliceDistrict { id, jurisdiction_id, number, boundary_geometry }
 User {
   id
   email
-  verification_status       // enum: unverified | email_verified | neighborhood_verified
-  home_neighborhood_id       // FK, nullable until onboarding complete
-  home_ward_id               // FK, derived from neighborhood
-  work_neighborhood_id       // FK, nullable
-  delivery_preference        // enum: app_only | weekly_email | both (native push reserved for v2)
+  phone                      // nullable — optional weak signal, combined with other verification, never standalone
+  verification_status        // enum: unverified | email_verified | neighborhood_verified | address_verified
+                              // address_verified = opt-in mailed-postcard verification (v2); unlocks trust_tier weighting,
+                              // does not gate base participation — see moderation-and-signal-notes.md "Verification Tiers"
+  home_neighborhood_id        // FK, nullable until onboarding complete
+  home_ward_id                // FK, derived from neighborhood
+  work_neighborhood_id        // FK, nullable
+  delivery_preference         // enum: app_only | weekly_email | both (native push reserved for v2)
+  trust_tier                  // (v2, UNRESOLVED) placeholder for some combination of tenure + verification level +
+                              // moderation history that earns an account more freedom/flexibility over time.
+                              // Firmly NOT: a visible score, leaderboard, or anything volume/participation-count
+                              // driven (gamification explicitly unwanted). What specifically this should gate,
+                              // and whether it's one evaluation or several, is undecided — see
+                              // moderation-and-signal-notes.md note #9. Must stay independent of whatever
+                              // mechanism weights input for officials (see relevance/rollup docs) — engagement
+                              // should never buy more influence with officials.
+  can_flag_for_review         // (v2, UNRESOLVED) bool — placeholder for a possible earned lightweight moderation
+                              // capability; not yet decided if/how this is earned (see note #9)
   created_at
   last_active_at
 }
@@ -189,7 +202,16 @@ FeedbackResponse {
   user_id                     // always populated — no functional anonymity, enforced at schema level
   stance                       // enum: support | oppose | question | neutral
   concern_tags[]               // FK[] -> Topic (sub-topic granularity, e.g. "Traffic -> Speeding")
-  free_text                    // optional, short — shown only as elaboration on a concern_tag
+  concern_rank                 // nullable per concern_tag entry — see note below. NULL for all concern_tags
+                                // unless the user explicitly engaged with ranking; if they did, every checked
+                                // concern_tag gets a rank (no partial-ranked state, no ties).
+  free_text                    // optional, short — shown only as elaboration on a concern_tag; capped length,
+                                // single-line input in UI, not a textarea
+  ai_summary                   // (v2) LLM-generated summary of free_text, used in rollups instead of raw text
+  ai_summary_user_reviewed     // bool — whether user saw/could revise ai_summary before submit (optional step,
+                                // only triggered when free_text is non-empty)
+  ai_summary_edit_method        // nullable enum: approved_as_is | regenerated | user_edited — audit trail for
+                                // how the final ai_summary diverged (or didn't) from the first-pass AI output
   created_at
 }
 
@@ -197,7 +219,14 @@ FeedbackRollup {               // precomputed, not query-time
   civic_item_id
   concern_tag_id
   response_count
-  representative_quotes[]       // sampled, not exhaustive
+  rank_distribution             // (v2) e.g. "ranked #1 by N respondents who selected this tag" — comparative
+                                // frequency stat derived from concern_rank, NEVER an averaged ordinal (avoids
+                                // false statistical precision — see moderation doc note #2)
+  ai_rollup_summary              // (v2) AI-generated grouped summary — the default surface shown to all viewers
+  representative_quotes[]       // sampled, not exhaustive; AI-selected to support ai_rollup_summary
+  raw_responses_visible_to       // (v2, open question — not yet settled) enum: officials_and_moderators_only |
+                                // nobody | everyone — see moderation-and-signal-notes.md note #6 for the
+                                // unresolved "who can drill into raw text" question
   unspecified_count              // responses with no sub-tag — reported honestly, never silently bucketed
   generated_at
 }
@@ -252,6 +281,9 @@ erDiagram
 - Commute-corridor inference (`match_reason: commute_inference`) has no supporting data model yet — flagged as v2+ and deliberately left unmodeled here.
 - Exact algorithm for deriving `relevance_label` from geometry/scope data (e.g., what distance threshold separates "direct_impact" from "nearby") is not yet defined — needs testing against real ingested items before finalizing.
 - The relevance vocabulary itself (`direct_impact | nearby | indirect | topic_match_only | fyi`) is a first draft, not yet pressure-tested against ambiguous real-world cases — see `notification-design-and-relevance-model.md`.
+- Account-fraud/brigading prevention beyond `verification_status` is still an open problem — lightweight email/address-adjacent verification doesn't stop coordinated fake-account creation; current thinking is server-side velocity/cluster detection feeding human review rather than a stronger signup gate (see `moderation-and-signal-notes.md`, "Verification Tiers"). Not yet modeled as a schema (e.g., no `SignupCluster` or fraud-flag entity defined here).
+- Exact `trust_tier` derivation algorithm (tenure + moderation history + geographic match weighting) is not yet defined — needs real moderation-flag data to calibrate against.
+- Whether `raw_responses_visible_to` on `FeedbackRollup` should be a per-item setting, a global policy, or role-computed at query time is unresolved (see `moderation-and-signal-notes.md` note #6).
 
 ## Related Documents
 - `notification-design-and-relevance-model.md` — the "why this matters" design and relevance vocabulary that motivates the `NotificationQueueEntry` fields above.
